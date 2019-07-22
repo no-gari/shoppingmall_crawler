@@ -1,0 +1,60 @@
+{% extends 'core/user/base.html' %}
+
+{% block content %}
+    <h1 class="text-center my-5">고고싱 쇼핑몰 크롤러</h1>
+
+
+    <script>
+        $(document).ready(function () {
+            $('form .type1').click(function () {
+                $('input[name=submit_type]').val(1);
+                $('form').submit();
+            });
+
+            $('form .type2').click(function () {
+                $('input[name=submit_type]').val(2);
+                $('form').submit();
+            });
+        });
+    </script>
+
+    <table class="table my-5">
+    <thead>
+        <tr>
+            <th width = "10%">카테고리</th>
+            <th width = "70%">질문</th>
+            <th width = "20%">날짜</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for question in questions%}
+        <tr>
+            <th>{{ question.category_id }}</th>
+            <td>{{ question.article }}</td>
+            <td>{{ question.date|date:"Y-M-d H시m분" }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="submit_type" value="0">
+        <button type="button" class="btn btn-dark type1">실행하기</button>
+        <button type="button" class="btn btn-dark type2">삭제하기</button>
+    </form>
+    <ul class="pagination justify-content-center my-5">
+        {% if page_control.0 != 1 %}
+        <li class="page-item prev"><a class="page-link" href="?page={{ pages.0 }}">Previous</a></li>
+        {% endif %}
+        {% for i in dic_page_total %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endfor %}
+        {% if next.0 != 1  %}
+        <li class="page-item next"><a class="page-link" href="?page={{ pages.1 }}">Next</a></li>
+        {% endif %}
+    </ul>
+
+
+{% endblock %}
