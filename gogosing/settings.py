@@ -90,6 +90,10 @@ DATABASES = {
         'PASSWORD': '12345678', # 계정 비밀번호
         'HOST': '163.239.28.23', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
+        'OPTIONS': {
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',
+            'charset': 'utf8mb4',
+        },
     }
 }
 

@@ -1,7 +1,53 @@
 {% extends 'core/user/base.html' %}
-
 {% block content %}
-    <h1 class="text-center my-5">고고싱 쇼핑몰 크롤러</h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Alluser.net</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">입고일정, 배송기간</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">사이즈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">취소, 환불</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">회원정보, 결제</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">적립금, 쿠폰</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">재입고</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">주소지</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">배송전 상품변경</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">상품, 코디</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">기타</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+    <div class="container">
+
+    <h3 class="text-center my-5">고고싱 쇼핑몰 크롤러</h3>
 
 
     <script>
@@ -15,6 +61,16 @@
                 $('input[name=submit_type]').val(2);
                 $('form').submit();
             });
+            {##}
+            {#$('form .type3').click(function () {#}
+            {#    $('input[name=submit_type]').val(3);#}
+            {#    $('form').submit();#}
+            {#});#}
+            {##}
+            {#$('form .type4').click(function () {#}
+            {#    $('input[name=submit_type]').val(4);#}
+            {#    $('form').submit();#}
+            {#});#}
         });
     </script>
 
@@ -41,8 +97,10 @@
     <form action="{% url 'index' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="submit_type" value="0">
-        <button type="button" class="btn btn-dark type1">실행하기</button>
-        <button type="button" class="btn btn-dark type2">삭제하기</button>
+        <button type="button" class="btn btn-dark type1">질문 크롤링하기</button>
+        <button type="button" class="btn btn-dark type2">질문 삭제하기</button>
+{#        <button type="button" class="btn btn-dark type3">상품 크롤링하기</button>#}
+{#        <button type="button" class="btn btn-dark type4">상품 삭제하기</button>#}
     </form>
     <ul class="pagination justify-content-center my-5">
         {% if page_control.0 != 1 %}
@@ -56,5 +114,5 @@
         {% endif %}
     </ul>
 
-
+</div>
 {% endblock %}

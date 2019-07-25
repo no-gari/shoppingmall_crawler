@@ -1,4 +1,18 @@
 from django.shortcuts import render
+#
+# def start2():
+#     from . import models
+#     from . import question_normalizer as q
+#
+#     category_list = [31, 46, 47, 26, 297, 7, 28, 27, 29, 1771]
+#     for i in range(0, len(category_list)):
+#         product_url_base = 'https://www.ggsing.com/product/list.html?cate_no='
+#         product_url = product_url_base+ str(category_list[i])
+#         page_list = q.product_url_parser(product_url)
+#         for j in range(0, len(page_list)):
+#             product_url_page = product_url_base+ str(category_list[i]) +'&'+page_list[j]
+#             product_code_list =
+#
 
 def start():
     from . import models
@@ -19,22 +33,25 @@ def start():
                 continue
 
             # 카테고리 저장 하는 부분
-            gogosing_category = models.Category.objects.create(name=res1)
-            gogosing_category.save()
+            gogosing_category = models.Category.objects.filter(name=res1)
+            if gogosing_category.count() > 0:
+                gogosing_category = gogosing_category.first()
+            else:
+                gogosing_category = models.Category.objects.create(name=res1)
+                gogosing_category.save()
+            # gogosing_category = models.Category.objects.get(name=res1)
 
-            # 답변 저장하는 부분
+            # 질문 저장하는 부분
             gogosing_question = models.Question.objects.create(article=res2, date=res3,
                                                                category=gogosing_category)
             gogosing_question.save()
 
-            # 댓글 저장하는 부분
-            gogosing_replies = models.Comment.objects.create(title=gogosing_question, text=res5, date=res4)
-            gogosing_replies.save()
+            # # 댓글 저장하는 부분
+            # gogosing_replies = models.Comment.objects.create(title=gogosing_question, text=res5, date=res4)
+            # gogosing_replies.save()
 
             if i == page_len:
                 break
-
-
 
 
 
@@ -53,8 +70,15 @@ def home(request):
             questions.delete()
             category = models.Category.objects.all()
             category.delete()
+        # elif submit_type == str(3):
+        #     start2()
+        # elif submit_type == str(4):
+        #     products = models.Product.objects.all()
+        #     products.delete()
 
-    questions = models.Question.objects.all().order_by('id')
+
+    category = models.Category.objects.all().order_by('id')
+    questions = models.Question.objects.all().order_by('category_id')
     total_counts = questions.count()
     current_page = request.GET.get('page', 1) # 현재 페이지
     page_now = int(current_page) # 현재 페이지 사용하기 위해서
@@ -95,5 +119,7 @@ def home(request):
     for i in range(first_page, last_page):
         dic_page_total[i] = i
 
+
+
     return render(request, 'core/user/home.html', {'questions': questions, 'dic_page_total': dic_page_total, 'pages': pages,
-                                                   'page_control' : page_control, 'next': next})
+                                                   'page_control' : page_control, 'next': next, 'category' : category})

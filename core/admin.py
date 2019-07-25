@@ -3,7 +3,7 @@ from .models import Category, Question, Comment
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['id', 'name']
 
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ['article', 'date']
