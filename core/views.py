@@ -1,21 +1,26 @@
 from django.shortcuts import render
-#
-# def start2():
-#     from . import models
-#     from . import question_normalizer as q
-#
-#     category_list = [31, 46, 47, 26, 297, 7, 28, 27, 29, 1771]
-#     for i in range(0, len(category_list)):
-#         product_url_base = 'https://www.ggsing.com/product/list.html?cate_no='
-#         product_url = product_url_base+ str(category_list[i])
-#         page_list = q.product_url_parser(product_url)
-#         for j in range(0, len(page_list)):
-#             product_url_page = product_url_base+ str(category_list[i]) +'&'+page_list[j]
-#             product_code_list =
-#
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from . import models
+
+
+def start2():
+    from . import product_normalizer as p
+
+    category_list = [31, 46, 47, 26, 297, 7, 28, 27, 29, 1771]
+    for i in range(0, len(category_list)):
+        product_url_base = 'https://www.ggsing.com/product/list.html?cate_no='
+        product_url = product_url_base+ str(category_list[i])
+        page_list = p.product_url_parser(product_url)
+        for j in range(0, len(page_list)):
+            product_url_page = product_url_base+ str(category_list[i]) +'&' + page_list[j]
+            product_name_list, product_code_list = p.product_html_parser(product_url_page)
+            for k in range(0, len(product_code_list)):
+                gogosing_product = models.Product.objects.create(code=product_code_list[k], name=product_name_list[k])
+                gogosing_product.save()
+
 
 def start():
-    from . import models
     from . import question_normalizer
 
     for j in range(1, 2000):
@@ -39,43 +44,22 @@ def start():
             else:
                 gogosing_category = models.Category.objects.create(name=res1)
                 gogosing_category.save()
-            # gogosing_category = models.Category.objects.get(name=res1)
 
             # 질문 저장하는 부분
-            gogosing_question = models.Question.objects.create(article=res2, date=res3,
+            gogosing_question = models.Question.objects.create(article=res2, date=res3, product_code=res5,
                                                                category=gogosing_category)
             gogosing_question.save()
 
-            # # 댓글 저장하는 부분
-            # gogosing_replies = models.Comment.objects.create(title=gogosing_question, text=res5, date=res4)
-            # gogosing_replies.save()
+            # 자동 답변 저장하는 부분
+            gogosing_autoreply = models.Autoreply.objects.create(url_address=url_list, auto_reply=res4, question=gogosing_question)
+            gogosing_autoreply.save()
 
             if i == page_len:
                 break
 
 
-
 def home(request):
-    from . import models
     import math
-
-    if request.method == "POST":
-        submit_type = request.POST['submit_type']
-        if submit_type == str(1):
-            start()
-        elif submit_type == str(2):
-            comments = models.Comment.objects.all()
-            comments.delete()
-            questions = models.Question.objects.all()
-            questions.delete()
-            category = models.Category.objects.all()
-            category.delete()
-        # elif submit_type == str(3):
-        #     start2()
-        # elif submit_type == str(4):
-        #     products = models.Product.objects.all()
-        #     products.delete()
-
 
     category = models.Category.objects.all().order_by('id')
     questions = models.Question.objects.all().order_by('category_id')
@@ -119,7 +103,26 @@ def home(request):
     for i in range(first_page, last_page):
         dic_page_total[i] = i
 
-
-
     return render(request, 'core/user/home.html', {'questions': questions, 'dic_page_total': dic_page_total, 'pages': pages,
                                                    'page_control' : page_control, 'next': next, 'category' : category})
+
+
+@api_view(['POST'])
+def crawling(request):
+    if request.method == 'POST':
+        send_data = request.POST['send_data']
+        if send_data == 'start':
+            start()
+        elif send_data == 'delete':
+            auto_reply = models.Autoreply.objects.all()
+            auto_reply.delete()
+            questions = models.Question.objects.all()
+            questions.delete()
+            category = models.Category.objects.all()
+            category.delete()
+        elif send_data == 'product_start':
+            start2()
+        elif send_data == 'product_delete':
+            product = models.Product.objects.all()
+            product.delete()
+        return Response({'message': '크롤링이 실행되었습니다.', 'data': send_data})

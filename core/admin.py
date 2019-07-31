@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Question, Comment
+from .models import Category, Question, Autoreply
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -8,9 +8,9 @@ class CategoryAdmin(admin.ModelAdmin):
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ['article', 'date']
 
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ['text', 'title', 'date']
+class ReplyAdmin(admin.ModelAdmin):
+    list_display = ['url_address', 'auto_reply', 'question']
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Comment, CommentAdmin)
+admin.site.register(Autoreply, ReplyAdmin)

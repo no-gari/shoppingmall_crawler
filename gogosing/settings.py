@@ -75,27 +75,27 @@ WSGI_APPLICATION = 'gogosing.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '2019_s_02', # DB명
-        'USER': 'sofaissofa', # 데이터베이스 계정
-        'PASSWORD': '12345678', # 계정 비밀번호
-        'HOST': '163.239.28.23', # 데이테베이스 주소(IP)
-        'PORT': '3306', # 데이터베이스 포트(보통은 3306)
-        'OPTIONS': {
-            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',
-            'charset': 'utf8mb4',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '2019_s_02', # DB명
+#         'USER': 'sofaissofa', # 데이터베이스 계정
+#         'PASSWORD': '12345678', # 계정 비밀번호
+#         'HOST': '163.239.28.23', # 데이테베이스 주소(IP)
+#         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
+#         'OPTIONS': {
+#             'init_command': 'SET sql_mode="STRICT_TRANS_TABLES", innodb_strict_mode=1',
+#             'charset': 'utf8mb4',
+#         },
+#     }
+# }
 
 
 # Password validation
