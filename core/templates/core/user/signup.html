@@ -1,0 +1,22 @@
+{% extends 'core/user/base.html' %}
+{% block content %}
+    <h1 class ="my-5 text-center">회원 가입</h1>
+    <div class="container my-5">
+        {{ text }}
+        <form method = "POST">
+            {% csrf_token %}
+            {% for field in signup_form.visible_fields %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-dark my-3">Submit</button>
+        </form>
+    </div>
+{% endblock %}

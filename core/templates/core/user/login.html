@@ -1,0 +1,24 @@
+{% extends 'core/user/base.html' %}
+{% block content %}
+    <h1 class ="my-5 text-center">로그인</h1>
+    <div class="container my-5">
+        {{ text }}
+        <form method = "POST">
+            {% csrf_token %}
+            {% for field in login_form.visible_fields %}
+                <div class="form-group">
+                    <label>{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-dark my-3">로그인</button>
+        </form>
+    </div>
+
+    <h4 class="text-center"><a href="change">비밀번호를 잊어버리셨나요?</a></h4>
+{% endblock %}

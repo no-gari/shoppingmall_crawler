@@ -1,7 +1,48 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from .forms import *
 from . import models
+from django.contrib.auth import login as auth_login, authenticate as auth
+
+
+def index(request):
+    return render(request, 'core/user/index.html')
+
+
+def login(request):
+    if request.user.is_anonymous != True:
+        return redirect('home')
+
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth(username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect('home')
+    else:
+        login_form = LoginForm()
+    return render(request, 'core/user/login.html', {'login_form': login_form})
+
+
+def signup(request):
+    signup_form = SignUpForm(data=request.POST or None)
+
+    text = ''
+    if request.method == 'POST':
+        if signup_form.is_valid():
+            new_user = User.objects.create_user(**signup_form.cleaned_data)
+            new_user.save()
+            text = '가입 성공'
+        else:
+            text = '가입 실패'
+
+    return render(request, 'core/user/signup.html',{
+        'signup_form': signup_form,
+        'text': text
+    })
 
 
 def start2():
@@ -60,6 +101,9 @@ def start():
 
 def home(request):
     import math
+
+    if request.user.is_anonymous == True:
+        return redirect('/')
 
     category = models.Category.objects.all().order_by('id')
     questions = models.Question.objects.all().order_by('category_id')
