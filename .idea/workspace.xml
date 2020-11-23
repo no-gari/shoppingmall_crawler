@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/core/views.py" line="16" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="03927ea5-37a6-486f-b143-99c95f070f63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0002_auto_20190720_2248.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0003_auto_20190727_1245.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0004_question_auto_reply.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0005_auto_20190727_1428.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0006_product.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0007_remove_product_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0008_question_product_code.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0009_auto_20190730_1412.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/migrations/0010_product_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/user/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/user/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gogosing/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/gogosing/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +29,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gogosing/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -51,6 +37,27 @@
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="76">
+                <caret line="4" selection-start-line="4" selection-end-line="4" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -69,24 +76,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
               <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/core/user/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1007">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/templates/core/user/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -177,7 +166,6 @@
         <option value="$PROJECT_DIR$/gogosing/urls.py" />
         <option value="$PROJECT_DIR$/core/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/../tutorial/crawler_naver_json/dfdfdf.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/core/tests.py" />
         <option value="$PROJECT_DIR$/core/migrations/0003_auto_20190723_1702.py" />
         <option value="$PROJECT_DIR$/core/migrations/0003_auto_20190724_1836.py" />
@@ -207,6 +195,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/gogosing/settings_private.py" />
         <option value="$PROJECT_DIR$/gogosing/settings.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -255,6 +244,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last.edited.regexp" value="[글 남겨주시기 전 자주하는 질문 게시판에서 다시한번 확인해주시길 바랍니다&#10;ㅁ 이미 출고된 상품은 변경이 어렵습니다.&#10;&#10;&#10;* 주문번호 : 20190723-0023716&#10;* 변경하실 상품명 :  썸머 양면니트 가디건&#10;* 변경원하시는상품명/옵션명 : 썸머 양면니트 가디건 아이보리 주문 했는데 블랙으로 바꿔주세요! ㅎㅎ&#10;]" />
@@ -511,7 +501,7 @@
       <workItem from="1576572701884" duration="1953000" />
       <workItem from="1605687357000" duration="3252000" />
       <workItem from="1605945592303" duration="920000" />
-      <workItem from="1606110460028" duration="241000" />
+      <workItem from="1606110460028" duration="444000" />
     </task>
     <task id="LOCAL-00001" summary="gogosing first commit">
       <created>1563801024240</created>
@@ -566,7 +556,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308729000" />
+    <option name="totallyTimeSpent" value="308932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,7 +585,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32969603" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.5049365" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.042313118" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20169252" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32501948" />
       <window_info anchor="bottom" id="manage.py@gogosing" order="13" weight="0.34978843" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -678,7 +668,6 @@
     <SUITE FILE_PATH="coverage/gogosing$auto_reply.coverage" NAME="auto_reply Coverage Results" MODIFIED="1564202346759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/emoji/unicode_codes.py" />
     <entry file="file://$PROJECT_DIR$/core/migrations/0003_auto_20190723_1702.py" />
     <entry file="file://$PROJECT_DIR$/core/migrations/0004_question_url_address.py" />
     <entry file="file://$PROJECT_DIR$/core/migrations/0003_auto_20190724_1836.py" />
@@ -832,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/core/user/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -965,6 +947,23 @@
           <folding>
             <element signature="e#309#318#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="76">
+            <caret line="4" selection-start-line="4" selection-end-line="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
